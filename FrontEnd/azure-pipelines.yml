@@ -1,0 +1,51 @@
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  jobs:
+  - job: BuildJob
+    pool:
+      vmImage: 'ubuntu-20.04'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '14.x'
+        displayName: 'Install Node.js'
+          
+      - script: |
+          cd '$(System.DefaultWorkingDirectory)/frontend'
+          npm install -g @angular/cli
+          npm install
+          ng build --prod
+        displayName: 'npm install and build'
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(System.DefaultWorkingDirectory)'
+          Contents: '**/web.config'
+          TargetFolder: '$(System.DefaultWorkingDirectory)/dist/sd2376-workshop'     
+      - task: replacetokens@3
+        inputs:
+          targetFiles: '$(System.DefaultWorkingDirectory)/dist/**/main*.js'
+          encoding: 'auto'
+          writeBOM: true
+          verbosity: 'detailed'
+          actionOnMissing: 'warn'
+          keepToken: false
+          tokenPrefix: '#{'
+          tokenSuffix: '}#'
+          variableFiles: '**/dev-config.json'
+          useLegacyPattern: false
+          enableTelemetry: true      
+      - task: ArchiveFiles@2
+        displayName: 'Archive files'
+        inputs:
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/'
+          includeRootFolder: false
+          archiveType: zip
+          archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+          replaceExistingArchive: true
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'

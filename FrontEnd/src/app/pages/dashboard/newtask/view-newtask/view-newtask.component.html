@@ -1,0 +1,43 @@
+      <div class="row">
+        <div class="btnback"><button routerLink="/dashboard/add-newtask" routerLinkActive="Active" class="btn border btn-danger"><i class="fa fa-backward"></i> Back</button></div>      
+    </div>
+
+    <div id="exTab2">	
+        <ul class="nav nav-tabs navbar-right">
+			<li class="nav-item active">
+                <button class="nav-link" href="#1" data-toggle="tab">View</button>
+            </li>		
+			<li>
+                <button class="nav-link" (click)="editTask()" href="#2" data-toggle="tab">Edit</button>
+			</li>			
+		</ul>
+
+			<div class="tab-content body-color">
+			  <div class="tab-pane active" id="1">
+                <div class="table-responsive">    
+                    <table class="table border-without-top ">
+                    <tbody>
+                        <tr>
+                            <td class="border-right border-bottom-0 fw-bold"><span>Title: </span></td>
+                            <td class="border-right border-bottom-0 "> {{taskDetail?.name}}</td>                   
+                        </tr>
+                        <tr>
+                            <td class="border-right border-bottom-0 fw-bold"><span>Description: </span></td>
+                            <td class="border-right border-bottom-0 "> {{taskDetail?.description}}</td>                  
+                        </tr>
+                        <tr>
+                            <td class="border-right border-bottom-0 fw-bold"><span>Status: </span></td>
+                            <td class="border-right border-bottom-0 "> {{taskDetail?.statusId}}</td>                
+                        </tr> 
+                        <tr>
+                            <td class="border-right border-bottom-0 fw-bold"><span>User: </span></td>
+                            <td class="border-right border-bottom-0"> {{taskDetail?.userId}}</td>                
+                        </tr>       
+                    </tbody>
+                    </table>
+                    </div> 
+				</div>
+				<div class="tab-pane" id="2">
+                    <app-edit-newtask *ngIf="showEditTask" [taskDetail]="taskDetail"></app-edit-newtask>
+				</div>       
+    </div>

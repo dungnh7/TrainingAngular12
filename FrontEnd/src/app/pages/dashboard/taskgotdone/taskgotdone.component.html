@@ -1,0 +1,15 @@
+<div class="table-responsive">          
+    <table class="table table-hover">
+      <thead>
+        <tr class="color-done">
+          <th>Task Got Done</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sortable" *ngFor="let task of tasks; let i = index;trackBy: trackByFn;">
+          <td (click)="clickShowDetail(task)">{{task.name}}</td>                   
+        </tr>         
+      </tbody>
+    </table>
+    <app-taskgotdonedetail *ngIf="displayDetailModel" (hideDisplayDetailModel)="hideDisplayDetailModelMethod($event)" [TaskId]=TaskId [displayDetailModel]=displayDetailModel></app-taskgotdonedetail>
+</div>

@@ -1,0 +1,54 @@
+table{
+    text-align: left;
+    border-radius: 0.25rem !important;
+    
+}
+table td textarea {
+    width: 100%;   
+   }
+.clsradio{
+    display: inline-flex;
+}
+.btnnewtask{
+    text-align: right;
+}
+.radio{
+    width: 10px;
+    margin: 10px;
+    padding: 5px;
+}
+.inputrounded{
+    width: 100%; 
+    font-size: medium;  
+}
+
+.btnback{
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: small;
+}
+.cross-validation-error input {
+    border-left: 5px solid #a94442;
+  }
+  
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  
+  .alert div {
+    background-color: #fed3d3;
+    color: #820000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .body-color{
+    background-color:  #f0f4f7 ;
+}

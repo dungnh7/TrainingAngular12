@@ -1,0 +1,14 @@
+<div class="table-responsive">          
+    <table class="table">
+      <thead>
+        <tr class="color-progress">
+          <th>Task In Progress</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; let i = index;trackBy: trackByFn;">
+          <td>{{task.name}}</td>                   
+        </tr>       
+      </tbody>
+    </table>
+    </div>

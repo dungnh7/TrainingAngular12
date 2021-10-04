@@ -1,0 +1,37 @@
+
+<div class="row fontsize">
+    <div class="margin-bottom">
+        <div class="btnback"><button (click)="addUser()" class="btn border btn-primary"><i class="fa fa-user-plus"></i> Add</button></div>      
+    </div>
+    <div *ngFor="let item of users;let i = index;trackBy: trackByFn;" class="col-sm-3 margin-bottom20">
+        <div class="border rounded text-center">
+            <form #UserForm="ngForm" appIdentityRevealed>
+                <div class="cross-validation" [class.cross-validation-error]="UserForm.errors?.identityRevealed && (UserForm.touched || UserForm.dirty)">               
+                    <div class="color-progress rounded d-flex justify-content-center text-center">
+                        <span *ngIf="item != editItem" class="view-title">{{item.name}}</span>
+                        <input  *ngIf="item == editItem" type="text" id="name" name="name" class="form-control input-title" required [(ngModel)]="item.name" #name="ngModel"/>
+                    </div>
+                
+           
+                    <div class="text-center"><img class="images" src="../../../../assets/download.png"></div>
+                    <div class="clsposition d-flex justify-content-center text-center">
+                        <span *ngIf="item != editItem" class="view-position">{{item.position}}</span>
+                        <input type="text" id="name2" name="name2" *ngIf="item == editItem" [(ngModel)]="item.position" required class="form-control input-title input-position" #name2="ngModel"/>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button (click)="clickShowSchedule(item)" *ngIf="item != userschedule && item.id != maxId" class="btn border btschedule"><i class="fa fa-calendar"></i>  Schedule</button>
+            </div>
+            <div>
+                <app-userschedule (hideDisplayScheduleModel)="hideDisplayScheduleModelMethod(item,$event)" *ngIf="item == userschedule && displayScheduleModel"  [UserId]=UserId [displayScheduleModel]=displayScheduleModel></app-userschedule>
+            </div>
+            <div class="bottom-user">
+                <button  (click)="editUser(item)" class="btn border btedit" *ngIf="item != editItem" ><i class="fa fa-edit"></i> Edit</button>
+                <button  (click)="cancelUser(item,i)" class="btn border btedit" *ngIf="item == editItem"><i class="fa fa-ban"></i> Cancel</button>
+                <button  (click)="saveUser(item)" [disabled]="UserForm.invalid" class="btn border btn-primary btdelete" *ngIf="item == editItem"><i class="fa fa-edit"></i> Save</button>
+                <button  (click)="deleteUser(item)" class="btn border btn-danger btdelete" *ngIf="item != editItem"><i class="fa fa-remove"></i> Delete</button>
+            </div>
+        </div>
+    </div>   
+</div>

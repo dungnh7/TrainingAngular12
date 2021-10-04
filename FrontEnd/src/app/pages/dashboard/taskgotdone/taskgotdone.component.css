@@ -1,0 +1,17 @@
+.color-done{
+    background-color: rgb(128 75 43);
+    color: white;
+    text-align: left;
+}
+
+table{
+    text-align: left;
+    margin-top:10px;
+}
+.model-detail{
+    display: contents;
+    position: absolute;
+}
+.sortable {
+    cursor: pointer;
+}

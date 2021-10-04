@@ -1,0 +1,60 @@
+table{
+    text-align: left;
+}
+table td textarea {
+    width: 100%;   
+   }
+.clsradio{
+    display: inline-flex;
+}
+.btnnewtask{
+    text-align: right;
+}
+
+.rounded{
+    width: 100%; 
+    font-size: medium;  
+}
+  
+#exTab2 {
+    text-align: right;
+  }
+.textright{
+    text-align: right;
+  }
+
+.navbar-right{
+    flex-direction: row-reverse;
+}
+.active button {
+    /* border: 1px solid white !important; */
+    background-color:  #f0f4f7  !important;
+    border-top: 1px solid #f0f4f7 !important;
+    border-left: 1px solid #f0f4f7 !important;;
+    border-right: 1px solid #f0f4f7 !important;;
+  
+  }
+.body-color{
+    background-color:  #f0f4f7 ;
+}
+.navbar-nav button
+{
+    background-color: white;
+    border: white !important;
+}
+.fw-bold{
+    width: 20%;
+}
+.border-without-top{
+    border-bottom: 1px solid #f0f4f7  !important;
+    border-left: 1px solid #f0f4f7  !important;;
+    border-right: 1px solid #f0f4f7  !important;;
+}
+.nav-tabs{
+    border-bottom: 1px solid #f0f4f7 !important;
+}
+.nav-link {
+    border: none !important;
+}
+  
+  

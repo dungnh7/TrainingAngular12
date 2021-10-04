@@ -1,0 +1,17 @@
+<div class="table-responsive">          
+    <table class="table" >
+      <thead>
+        <tr class="color-new">
+          <th>New Tasks</th>          
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let task of tasks ; let i = index;trackBy: trackByFn;">
+          <td>{{task.name}}</td>                   
+        </tr>
+        <tr>
+            <td class="right"><button routerLink="/dashboard/add-newtask" routerLinkActive="Active" class="btn border btn-primary"><i class="fa fa-bars"></i> Add</button></td>                   
+          </tr>
+      </tbody>
+    </table>
+    </div>

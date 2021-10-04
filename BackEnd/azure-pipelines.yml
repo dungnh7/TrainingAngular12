@@ -1,0 +1,44 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: build
+
+    jobs:
+      - job: build
+        steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: 'sdk'
+            version: '5.x'
+          displayName: 'Set SDK to 5.x'
+
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'build'
+            projects: '$(Build.SourcesDirectory)/sd2376_workshop_backend.csproj'
+          displayName: 'Build backend service'
+
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)'
+            Contents: '**/Workshop.db'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)/s'
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'publish'
+            publishWebProjects: false
+            projects: '$(Build.SourcesDirectory)/sd2376_workshop_backend.csproj'
+            arguments: '-o $(Build.ArtifactStagingDirectory)'
+          displayName: 'dotnet publish'
+          condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+       
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathToPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+          condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))

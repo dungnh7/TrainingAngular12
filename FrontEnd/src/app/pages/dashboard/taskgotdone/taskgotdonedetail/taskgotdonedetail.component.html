@@ -1,0 +1,16 @@
+<div class="modal" [class.model-detail]='displayDetailModel' tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title">{{taskDetail?.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="clickHideDetail()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row"><span class="content-title">Description:</span> <span>{{taskDetail?.description}}</span></div>
+          <div class="row"><span class="content-title">User:</span> <span>{{taskDetail?.userId}}</span></div>          
+        </div>          
+      </div>
+    </div>
+  </div>

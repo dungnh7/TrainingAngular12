@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="btnback"><button (click)="backClicked()" class="btn border btn-danger"><i class="fa fa-backward"></i> Back</button></div>      
+</div>
+
+<div class="table-responsive">    
+    <table class="table border body-color">
+      <tbody>
+        <tr>
+            <td class="border-right border-bottom-0 fw-bold">Title</td>                   
+          </tr>
+        <tr>
+          <td class="border-right border-bottom-0">
+            <form #newTaskForm="ngForm" appIdentityRevealed>
+                <div class="cross-validation" [class.cross-validation-error]="newTaskForm.errors?.identityRevealed && (newTaskForm.touched || newTaskForm.dirty)">
+                    <div class="form-group">
+                        <input placeholder="Insert the title..."  type="text" id="name" name="name" class="form-control" required [(ngModel)]="newTask.name" #name="ngModel"/>                   
+                    </div>
+                </div>
+            </form>
+        </td>                   
+        </tr>
+        <tr>
+            <td class="border-right border-bottom-0">
+                <form #newTaskForm1="ngForm" appIdentityRevealed>
+                    <div class="cross-validation" [class.cross-validation-error]="newTaskForm1.errors?.identityRevealed && (newTaskForm1.touched || newTaskForm1.dirty)">
+                        <textarea placeholder="Insert a suitable description..." id="name2" name="name2" #name2="ngModel" [(ngModel)]="newTask.description" rows="5"  class="form-control" required></textarea>                  
+                    </div>
+                </form>
+            </td> 
+        </tr>
+        <tr>
+            <td class="border-right border-bottom-0 fw-bold">Status</td>                   
+        </tr>
+        <tr>
+            <td class="border-right border-bottom-0">
+                <div class="clsStatus"  >
+                    <label><input type="radio" [(ngModel)]="newTask.statusId" value=1 class="radio" value="1" /> New</label>
+                    <label><input type="radio" [(ngModel)]="newTask.statusId" value=2 class="radio"  value="2" /> In Progress</label>
+                    <label><input type="radio" [(ngModel)]="newTask.statusId" value=3 class="radio"  value="3" /> Done</label>
+                </div>
+            </td>                   
+        </tr>
+        <tr>
+            <td class="btnnewtask">
+                <button  (click)="AddTask()" [disabled]="newTaskForm.invalid || newTaskForm1.invalid" class="btn border btn-primary"><i class="fa fa-bars"></i> Save</button>
+                <button  (click)="backClicked()" class="btn border btn btn-outline-secondary"><i class="fa fa-close"></i> Cancel</button>
+            </td>                   
+        </tr>
+      </tbody>
+    </table>
+    </div>

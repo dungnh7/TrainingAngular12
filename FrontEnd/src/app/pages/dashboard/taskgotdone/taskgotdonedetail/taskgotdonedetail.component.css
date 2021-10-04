@@ -1,0 +1,15 @@
+.model-detail{
+    display: contents;
+    position: absolute;
+}
+.modal-title{
+    text-align: left;
+}
+.row{
+    display: block;
+    text-align: left;
+    font-size: small;
+}
+.content-title{
+    font-weight: bold;
+}

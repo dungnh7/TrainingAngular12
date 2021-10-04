@@ -1,0 +1,32 @@
+<div class="modal" [class.model-detail]='displayScheduleModel' tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Schedule</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="clickHideSchedule()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table margin10">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col"><i class="fa fa-map-marker" aria-hidden="true"></i> Location</th>
+                <th scope="col"><i class="fa fa-calendar"></i> Time Start</th>
+                <th scope="col"><i class="fa fa-calendar"></i> Time End</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of userschedule">
+                <td>{{item?.title}}</td>
+                <td>{{item?.location}}</td>
+                <td>{{item?.timeStart | date: 'MMM d, y, h:mm a'}}</td>
+                <td>{{item?.timeEnd | date: 'MMM d, y, h:mm a'}}</td>               
+              </tr>      
+            </tbody>
+          </table>
+        </div>          
+      </div>
+    </div>
+  </div>

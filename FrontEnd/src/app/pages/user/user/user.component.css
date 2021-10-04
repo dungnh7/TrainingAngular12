@@ -1,0 +1,114 @@
+.color-progress{
+    background-color:#1976d2;
+    color: white;
+    text-align: center;
+    height: 45px;
+    padding: 5px 0;
+}
+
+table{
+    text-align: left;
+    margin-top:10px;
+}
+.padding5
+{
+    padding: 5px;
+}
+.margin-bottom{
+    margin-bottom: 10px;
+}
+.rounded{
+    border-color: #1976d2;
+    
+}
+.images{
+    width: 200px;
+    text-align: center !important;
+    padding-top: 10px;
+}
+.btschedule{
+    background-color:#1976d2;
+    width: 160px;
+    color: white;
+    height: 35px;
+    font-size: small;
+}
+.bottom-user
+{
+    margin-top: 10px;
+    background-color: #e4e6e7;
+    padding: 5px;
+}
+.btedit{
+    background-color: white;
+    width: 80px;
+    height: 50;
+    font-size: small;
+}
+.btdelete{
+    width: 100px;
+    height: 40;
+    font-size: small;
+}
+.clsposition{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.fontsize{
+    font-size: small;
+}
+.margin-bottom20{
+    margin-bottom: 30px;
+}
+.input-title{
+    width: 75%;
+    text-align: left;
+}
+.input-position{
+    height: 35px;
+}
+.view-title{
+    background-color:#1976d2;
+    border: 0px;
+    color: white;
+    font-size: medium;
+    pointer-events: none;
+    text-align: center;
+    padding-top: 6px;
+}
+input {
+    max-width: 100%;
+}
+.view-position{
+    border: 0px;
+    pointer-events: none;  
+    font-weight: bold;  
+    text-align: center;
+}
+.edit-position{
+    border: 1px solid #94d6c0 !important;
+    border-radius: 0.25rem !important;
+}
+.cross-validation-error input {
+    border-left: 5px solid #a94442;
+  }
+  
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  
+  .alert div {
+    background-color: #fed3d3;
+    color: #820000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+

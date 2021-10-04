@@ -1,0 +1,14 @@
+.color-new{
+    background-color: rgb(98 59 130);
+    color: white;
+    text-align: left;
+}
+
+table{
+    text-align: left;
+    margin-top: 10px;
+}
+.right{
+    text-align: right;
+    border: 0;
+}

@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="btnback"><button (click)="backClicked()" class="btn border btn-danger"><i class="fa fa-backward"></i> Back</button></div>      
+</div>
+
+<div class="table-responsive">    
+    <table class="table border">
+      <tbody>
+        <tr>
+        <td class="border-right border-bottom-0 title fw-bold">Title</td> 
+          <td class="border-right border-bottom-0">
+            <form #newScheduleForm="ngForm" appIdentityRevealed>
+                <div class="cross-validation" [class.cross-validation-error]="newScheduleForm.errors?.identityRevealed && (newScheduleForm.touched || newScheduleForm.dirty)">
+                    <div class="form-group">
+                        <input placeholder="Insert the title..."  type="text" id="name" name="name" class="form-control" required [(ngModel)]="newSchedule.title" #name="ngModel"/>                   
+                    </div>
+                </div>
+            </form>
+            </td>                   
+        </tr>       
+        <tr>
+            <td class="border-right border-bottom-0 title fw-bold">Description</td> 
+            <td class="border-right border-bottom-0">
+                <form #newScheduleForm1="ngForm" appIdentityRevealed>
+                    <div class="cross-validation" [class.cross-validation-error]="newScheduleForm1.errors?.identityRevealed && (newScheduleForm1.touched || newScheduleForm1.dirty)">
+                        <textarea placeholder="Insert a suitable description..." id="name2" name="name2" #name2="ngModel" [(ngModel)]="newSchedule.description" rows="5"  class="form-control" required></textarea>                  
+                    </div>
+                </form>
+            </td> 
+        </tr>
+        <tr>
+            <td class="border-right border-bottom-0 title fw-bold">Location</td> 
+            <td class="border-right border-bottom-0">
+                <form #newScheduleForm2="ngForm" appIdentityRevealed> 
+                    <div class="cross-validation" [class.cross-validation-error]="newScheduleForm2.errors?.identityRevealed && (newScheduleForm2.touched || newScheduleForm2.dirty)"> 
+                    <select
+                        id="Location"
+                        name="Location"
+                        class="form-control-select form-control-chosen-required"
+                        required
+                        [(ngModel)]="newSchedule.location"
+                        #Location="ngModel"
+                        >
+                        <option *ngFor="let p of locations" [value]="p">{{ p }}</option>
+                    </select>
+                    </div>
+                </form> 
+              </td>                   
+          </tr>
+        <tr>
+        <tr>
+            <td class="border-right border-bottom-0 title fw-bold">Author</td> 
+            <td class="border-right border-bottom-0">
+                <form #newScheduleForm3="ngForm" appIdentityRevealed> 
+                    <div class="cross-validation" [class.cross-validation-error]="newScheduleForm3.errors?.identityRevealed && (newScheduleForm3.touched || newScheduleForm3.dirty)"> 
+                    <select
+                        id="Author"
+                        name="Author"
+                        class="form-control-select form-control-chosen-required"
+                        required
+                        [(ngModel)]="newSchedule.userId"
+                        #Author="ngModel"
+                        >
+                        <option *ngFor="let item of users" [value]="item.id">{{ item.name }} - {{item.position}}</option>
+                    </select>
+                    </div>
+                </form> 
+              </td>                   
+          </tr>
+        <tr>
+        <tr>
+                <td class="border-right border-bottom-0 title fw-bold">Time Start</td> 
+                <td class="border-right border-bottom-0">
+                     <form #newScheduleForm4="ngForm" appIdentityRevealed> 
+                        <div class="cross-validation" [class.cross-validation-error]="newScheduleForm4.errors?.identityRevealed && (newScheduleForm4.touched || newScheduleForm4.dirty)"> 
+                        <input matInput [ngxMatDatetimePicker]="picker" id="timeStart" datetime="yyyy-MM-dd HH:mm" name="timeStart" [(ngModel)]="newSchedule.timeStart" class="dateinput form-control-select-datetime" placeholder="Choose a date" required />
+                            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="true"
+                                                    [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                                                    [touchUi]="false" [enableMeridian]="false"
+                                                    [disableMinute]="false" [hideTime]="false">
+                            </ngx-mat-datetime-picker>
+                        </div>
+                    </form>                     
+              </tr>
+        <tr>
+            <tr>
+                <td class="border-right border-bottom-0 title fw-bold">Time End</td> 
+                <td class="border-right border-bottom-0">
+                    <form #newScheduleForm5="ngForm" appIdentityRevealed>
+                        <div class="cross-validation" [class.cross-validation-error]="newScheduleForm5.errors?.identityRevealed && (newScheduleForm5.touched || newScheduleForm5.dirty)"> 
+                        <input matInput [ngxMatDatetimePicker]="picker1" id="timeEnd" name="timeEnd" [(ngModel)]="newSchedule.timeEnd" class="form-control-select-datetime dateinput" placeholder="Choose a date" required />
+                            <mat-datepicker-toggle matSuffix [for]="$any(picker1)"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker1 [showSpinners]="true" [showSeconds]="true"
+                                                    [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                                                    [touchUi]="false" [enableMeridian]="false"
+                                                    [disableMinute]="false" [hideTime]="false">
+                            </ngx-mat-datetime-picker>
+                        </div>
+                    </form> 
+                </td>                   
+              </tr>
+        <tr> 
+        </tr>
+        <tr>
+            <td></td>
+            <td class="btnnewSchedule">
+                <button  (click)="AddSchedule()" [disabled]="newScheduleForm.invalid || newScheduleForm1.invalid || newScheduleForm2.invalid || newScheduleForm3.invalid || newScheduleForm4.invalid || newScheduleForm5.invalid" class="btn border btn-primary"><i class="fa fa-bars"></i> Save</button>
+                <button  (click)="backClicked()" class="btn border btn btn-outline-secondary"><i class="fa fa-close"></i> Cancel</button>
+            </td>                   
+        </tr>
+      </tbody>
+    </table>
+    </div>
